@@ -1,0 +1,2 @@
+export const ADD_TO_DIAGRAM = 'ADD_TO_DIAGRAM';
+export const REMOVE_FROM_DIAGRAM = 'REMOVE_FROM_DIAGRAM';

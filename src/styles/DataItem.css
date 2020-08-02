@@ -1,0 +1,30 @@
+.data-list {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+}
+
+.data-item-content {
+  margin-left: 16px;
+}
+
+.data-item-delete {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  margin-right: 16px;
+  cursor: pointer;
+}
