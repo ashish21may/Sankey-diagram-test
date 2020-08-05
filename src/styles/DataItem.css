@@ -18,6 +18,23 @@
   margin-left: 16px;
 }
 
+.data-item-update {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-right: 16px;
+}
+
+.data-item-edit {
+  display: inline-block;
+  height: 24px;
+  width: 48px;
+  border-radius: 10%;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
 .data-item-delete {
   display: inline-block;
   height: 24px;
@@ -25,6 +42,5 @@
   border-radius: 50%;
   background-color: red;
   color: white;
-  margin-right: 16px;
   cursor: pointer;
 }

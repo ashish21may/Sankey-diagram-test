@@ -1,7 +1,28 @@
 .header {
+  display: flex;
   height: 50px;
   width: 100%;
+  align-items: center;
+  justify-content: space-between;
   background-color: cornflowerblue;
   color: white;
   font-size: xx-large;
+}
+
+.header > div {
+  margin-left: 45%;
+}
+
+.header-language-button {
+  display: 'flex';
+  background-color: firebrick;
+  font-size: medium;
+  color: white;
+  justify-content: 'flex-end';
+  align-items: center;
+  cursor: 'pointer';
+  width: 75px;
+  height: 32px;
+  border-radius: 10%;
+  margin-right: 5%;
 }

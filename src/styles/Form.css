@@ -8,6 +8,10 @@
   overflow-y: auto;
 }
 
+.form-error-message {
+  color: red;
+}
+
 .form input {
   width: 200px;
   height: 30px;

@@ -1,14 +1,16 @@
 import React from 'react'
 import DataItem from './DataItem';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import '../styles/DataItem.css';
 
 const DataList = () => {
-  const dataList = useSelector(state => state.diagramReducer);
+  const dataList = useSelector(state => state.diagramReducer.sankeyData);
+  const { t } = useTranslation();
   return (
     <div className="data-list">
-      <h2> Data-List {dataList.length ? '(Items can be deleted)': '(all items deleted)'}</h2>
+      <h2 data-testid='datalist-heading'> {t('Data-List')} {dataList.length ? t('(Items can be deleted)'): t('(all items deleted)')}</h2>
       {dataList.map((data, index) => (
         <DataItem data={data} key={index} />
       ))}

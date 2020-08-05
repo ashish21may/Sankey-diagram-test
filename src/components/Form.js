@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ADD_TO_DIAGRAM } from '../redux/constant'
 import { v4 as uuid } from 'uuid'
+import { useTranslation } from 'react-i18next'
 
 import '../styles/Form.css'
 
@@ -9,24 +10,72 @@ const Form = () => {
   const [inflow, setInflow] = useState('')
   const [outflow, setOutflow] = useState('')
   const [weight, setWeight] = useState('')
+  const [validationMessage, setValidationMessage] = useState('');
+  const { t } = useTranslation()
   const dispatch = useDispatch()
+  const editSankeyData = useSelector(state => state.diagramReducer.editSankeyData)
+
+  useEffect(() => {
+    
+    if (editSankeyData.length>0) {
+      setInflow(editSankeyData[0].from)
+      setOutflow(editSankeyData[0].to)
+      setWeight(editSankeyData[0].weight)
+      setValidationMessage('')
+    }
+  }, [editSankeyData])
 
   const handleFormSubmit = e => {
     e.preventDefault()
-    const data = {
-      from: inflow,
-      to: outflow,
-      weight: Number(weight),
-      id: uuid()
+    if(isValid()){
+      const data =
+      editSankeyData.length > 0
+          ? {
+              from: inflow,
+              to: outflow,
+              weight: Number(weight),
+              id: editSankeyData[0].id
+            }
+          : {
+              from: inflow,
+              to: outflow,
+              weight: Number(weight),
+              id: uuid()
+            }
+  
+      dispatch({ type: ADD_TO_DIAGRAM, payload: data })
+      clearState()
     }
-    console.log('new form Data Object: ', data)
+  }
 
-    dispatch({ type: ADD_TO_DIAGRAM, payload: data })
+  const isValid = () => {
+    if (inflow.trim() === '') {
+      setValidationMessage('Income is not entered')
+      return false
+    } else if (outflow.trim() === '') {
+      setValidationMessage('Expenditure is not entered')
+      return false
+    } else if (String(weight).trim() === '') {
+      setValidationMessage('Weight is not entered')
+      return false
+    } else if (isNaN(Number(weight))){
+      setValidationMessage('Weight is not a number')
+      return false
+    }
+    setValidationMessage('')
+    return true;
+  }
+
+  const clearState = () => {
+    setInflow('')
+    setOutflow('')
+    setWeight('')
   }
 
   return (
     <form className='form' onSubmit={handleFormSubmit}>
-      <h2> Enter Data for Sankey diagram</h2>
+      <h2> {t('Form Heading')}</h2>
+      <div className="form-error-message">{validationMessage}</div>
       <input
         type='text'
         value={inflow}
