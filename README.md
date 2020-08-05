@@ -13,3 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. We can delete any data(displayed in Sankey diagram) from the list.
 
 4. All of Data-management is done via redux.
+
+
+![Test Image](https://github.com/ashish21may/Sankey-diagram-test/blob/master/Sankey.jpg)
