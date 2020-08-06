@@ -5,7 +5,7 @@ import { REMOVE_FROM_DIAGRAM, EDIT_IN_DIAGRAM } from '../redux/constant'
 import '../styles/DataItem.css'
 
 
-const RepoItem = ({ data }) => {
+const DataItem = ({ data }) => {
   const dispatch = useDispatch()
 
   const handleDelete = id => {
@@ -33,4 +33,4 @@ const RepoItem = ({ data }) => {
   )
 }
 
-export default RepoItem
+export default DataItem

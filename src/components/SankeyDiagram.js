@@ -11,7 +11,7 @@ HighchartSankey(Highcharts)
 
 const SankeyDiagram = () => {
   const data = useSelector(state => state.diagramReducer.sankeyData)
-  // Below console tells us that we get updated data from reducer always.
+  // Below console tells us that we get updated data from store always.
   // But It seems highchart Sankey diagram does not updates sometimes, even with new data.
   console.log('data in Sankey Diagram: ',data)
   const { t } = useTranslation()

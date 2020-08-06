@@ -9,18 +9,15 @@
   font-size: xx-large;
 }
 
-.header > div {
+.header-text {
   margin-left: 45%;
 }
 
 .header-language-button {
-  display: 'flex';
   background-color: firebrick;
   font-size: medium;
   color: white;
-  justify-content: 'flex-end';
-  align-items: center;
-  cursor: 'pointer';
+  cursor: pointer;
   width: 75px;
   height: 32px;
   border-radius: 10%;

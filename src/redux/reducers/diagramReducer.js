@@ -11,23 +11,23 @@ export default function diagramReducer (state = initialState, action) {
       const newData = action.payload;
       const dataExists = diagramData.some((item) => item.id === newData.id);
       return dataExists
-        ? Object.assign(state, {sankeyData: diagramData.map(item=>{
+        ? Object.assign({}, state, {sankeyData: diagramData.map(item=>{
             if(item.id === newData.id){
               item.from = newData.from;
               item.to = newData.to;
               item.weight = newData.weight;
             }
             return item
-          }), editSankeyData: []})
-        : Object.assign(state, {sankeyData:[...diagramData, newData], editSankeyData: []});
+          })})
+        : Object.assign({}, state, {sankeyData:[...diagramData, newData]});
 
     case REMOVE_FROM_DIAGRAM:
       const dataId = action.payload
-      return Object.assign(state, {sankeyData:diagramData.filter(item=> item.id !== dataId)});
+      return Object.assign({}, state, {sankeyData: diagramData.filter(item=> item.id !== dataId)});
 
     case EDIT_IN_DIAGRAM:
       const editId = action.payload
-      return Object.assign(state, {editSankeyData: diagramData.filter(item=> item.id === editId)});
+      return Object.assign({}, state, {editSankeyData: diagramData.filter(item=> item.id === editId)});
     default:
       return state
   }
