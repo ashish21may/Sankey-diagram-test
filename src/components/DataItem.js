@@ -18,14 +18,14 @@ const DataItem = ({ data }) => {
 
   return (
     <div className='data-item'>
-      <div className='data-item-content'>
+      <div className='data-item-content' data-testid='data-item-in-list'>
         {data.from} {' --> '} {data.to} : {data.weight}
       </div>
       <div className='data-item-update'>
-      <div className='data-item-edit' onClick={() => handleEdit(data.id)}>
+      <div className='data-item-edit' data-testid='item-edit' onClick={() => handleEdit(data.id)}>
         Edit
       </div>
-      <div className='data-item-delete' onClick={() => handleDelete(data.id)}>
+      <div className='data-item-delete' data-testid='item-delete' onClick={() => handleDelete(data.id)}>
         X
       </div>
       </div>

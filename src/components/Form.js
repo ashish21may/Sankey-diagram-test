@@ -73,7 +73,7 @@ const Form = () => {
   }
 
   return (
-    <form className='form' onSubmit={handleFormSubmit}>
+    <form className='form' data-testid='form' onSubmit={handleFormSubmit}>
       <h2> {t('Form Heading')}</h2>
       <div className="form-error-message">{validationMessage}</div>
       <input
@@ -81,20 +81,23 @@ const Form = () => {
         value={inflow}
         onChange={e => setInflow(e.target.value)}
         placeholder='Enter Income source ...'
+        data-testid="input-income"
       />
       <input
         type='text'
         value={outflow}
         onChange={e => setOutflow(e.target.value)}
         placeholder='Enter Expenditure ...'
+        data-testid='input-expenditure'
       />
       <input
         type='text'
         value={weight}
         onChange={e => setWeight(e.target.value)}
         placeholder='Enter Weightage in numbers ...'
+        data-testid='input-weight'
       />
-      <button type='submit'>Submit</button>
+      <button type='submit' data-testid='form-button'>Submit</button>
     </form>
   )
 }

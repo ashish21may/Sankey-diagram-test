@@ -22,6 +22,7 @@ const Header = () => {
         className='header-language-button'
         data-testid='language-button'
         onClick={handleOnClick}
+        value={i18n.language}
       > {i18n.language}
       </button>
     </div>

@@ -4,7 +4,6 @@ import { data } from '../../mock-data/Data';
 const initialState = data;
 
 export default function diagramReducer (state = initialState, action) {
-  console.log('in Reducer, Action is: ', action)
   const diagramData = state.sankeyData;
   switch (action.type) {
     case ADD_TO_DIAGRAM:
