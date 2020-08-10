@@ -1,50 +1,50 @@
 import React from 'react';
-import { render, fireEvent, cleanup, wait } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import App from '../App';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+// import { createStore } from 'redux'
+// import { Provider } from 'react-redux'
 
 afterEach(cleanup)
 
-const initialState = {
-  sankeyData:[
-    {
-      from:'Salary',
-      to: 'Rent',
-      weight: 8,
-      id: 1
-    }
-  ],
-  editSankeyData:[]
-}
+// const initialState = {
+//   sankeyData:[
+//     {
+//       from:'Salary',
+//       to: 'Rent',
+//       weight: 8,
+//       id: 1
+//     }
+//   ],
+//   editSankeyData:[]
+// }
 
-const newData = {
-  from:'Salary',
-  to: 'Food',
-  weight: 10,
-  id: 2
-}
+// const newData = {
+//   from:'Salary',
+//   to: 'Food',
+//   weight: 10,
+//   id: 2
+// }
 
-function reducer(state=initialState, action){
-  switch(action.type) {
-    case 'ADD_TO_DIAGRAM':
-      return Object.assign({}, state, {sankeyData: [...state.sankeyData, newData]})
-    default:
-      return state;
-  }
-}
+// function reducer(state=initialState, action){
+//   switch(action.type) {
+//     case 'ADD_TO_DIAGRAM':
+//       return Object.assign({}, state, {sankeyData: [...state.sankeyData, newData]})
+//     default:
+//       return state;
+//   }
+// }
 
-function mockWithRedux (
-  component,
-  { initialState, store = createStore(reducer, initialState) } = {}
-) {
-  return {
-  ...render(<Provider store={store}>{component}</Provider>)
-  }
-}
+// function mockWithRedux (
+//   component,
+//   { initialState, store = createStore(reducer, initialState) } = {}
+// ) {
+//   return {
+//   ...render(<Provider store={store}>{component}</Provider>)
+//   }
+// }
 
 describe('App',()=>{
-  const { queryByTestId, getAllByTestId } = mockWithRedux(<App />);
+  const { queryByTestId, getAllByTestId } = render(<App />);
 
   const income = queryByTestId('input-income');
   const expenditure = queryByTestId('input-expenditure');

@@ -11,8 +11,8 @@ const DataList = () => {
   return (
     <div className="data-list">
       <h2 data-testid='datalist-heading'> {t('Data-List')} {dataList.length ? t('(Items can be deleted)'): t('(all items deleted)')}</h2>
-      {dataList.map((data, index) => (
-        <DataItem data={data} key={index} />
+      {dataList.map((data) => (
+        <DataItem data={data} key={data.id} />
       ))}
     </div>
   )
